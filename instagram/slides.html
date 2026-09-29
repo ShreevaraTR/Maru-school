@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Maru Instagram · launch posts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,400;1,9..144,600&family=Gowun+Batang:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* Same tokens as the website (styles.css) */
+:root{
+  --ink:#120d1d;--ink-2:#1c1430;--plum:#3b2a55;--paper:#f6f0e6;--paper-2:#efe6d6;--paper-line:#e2d6c1;
+  --text:#221a2e;--text-soft:#5b5068;--on-dark:#f5efe6;--on-dark-soft:#c9bfd6;
+  --red:#d2402f;--red-deep:#a92e21;--jade:#2f8f7a;--gold:#f0b152;--violet:#8a6bd1;
+  --f-display:"Fraunces",Georgia,serif;--f-body:"Plus Jakarta Sans",system-ui,sans-serif;--f-ko:"Gowun Batang",serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#555;font-family:var(--f-body);display:flex;flex-direction:column;gap:40px;padding:40px;align-items:flex-start}
+[lang="ko"]{font-family:var(--f-ko)}
+.post-label{color:#fff;font:700 28px var(--f-body)}
+.row{display:flex;gap:30px;flex-wrap:wrap}
+
+/* ---------- Slide frame ---------- */
+.slide{position:relative;width:1080px;height:1350px;overflow:hidden;flex:none;color:var(--on-dark);background:var(--ink);isolation:isolate}
+.slide.paper{color:var(--text);background:var(--paper);
+  background-image:radial-gradient(rgba(120,90,50,.07) 1.4px,transparent 1.4px),radial-gradient(rgba(120,90,50,.05) 1.4px,transparent 1.4px);
+  background-size:9px 9px,17px 17px;background-position:0 0,4px 6px}
+.slide.dusk{background:linear-gradient(180deg,#0c0a1c 0%,#1d1535 34%,#4a2a55 64%,#a34f5e 84%,#ee9a6c 100%)}
+.band{position:absolute;left:0;right:0;top:0;height:14px;z-index:5;
+  background:repeating-linear-gradient(90deg,var(--red) 0 40px,var(--jade) 40px 58px,var(--gold) 58px 66px,var(--jade) 66px 84px)}
+.head{position:absolute;left:72px;right:72px;top:62px;display:flex;align-items:center;justify-content:space-between;z-index:6}
+.brand{display:flex;align-items:center;gap:16px}
+.seal{display:grid;place-items:center;width:62px;height:62px;border-radius:14px;background:var(--red);color:#fff;
+  font:700 22px var(--f-ko);box-shadow:inset 0 0 0 3px rgba(255,255,255,.25);transform:rotate(-4deg)}
+.word{font:800 30px var(--f-display);letter-spacing:.22em}
+.count{font:700 22px var(--f-body);letter-spacing:.16em;opacity:.7}
+.foot{position:absolute;left:72px;right:72px;bottom:60px;display:flex;justify-content:space-between;align-items:center;z-index:6;font:600 24px var(--f-body);opacity:.8}
+.swipe{display:flex;align-items:center;gap:12px}
+.swipe::after{content:"";width:56px;height:2px;background:currentColor;box-shadow:12px 0 0 -0px transparent}
+.swipe b{font-size:30px}
+.eyebrow{font:800 24px var(--f-body);letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.paper .eyebrow{color:var(--red-deep)}
+.h1{font:800 104px/1.02 var(--f-display);letter-spacing:-.02em}
+.h2{font:800 78px/1.05 var(--f-display);letter-spacing:-.015em}
+.lead{font:500 36px/1.45 var(--f-body);color:var(--on-dark-soft)}
+.paper .lead{color:var(--text-soft)}
+em.gold{font-style:normal;color:var(--gold)}
+em.red{font-style:normal;color:var(--red)}
+.series{display:inline-flex;align-items:center;gap:12px;padding:12px 22px;border-radius:999px;background:rgba(255,255,255,.1);
+  box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.2);font:700 22px var(--f-body);letter-spacing:.14em;text-transform:uppercase}
+.paper .series{background:#fffaf2;box-shadow:inset 0 0 0 1.5px var(--paper-line)}
+.series .dot{width:12px;height:12px;border-radius:50%;background:var(--red)}
+
+/* ---------- Scene (shared hanok night) ---------- */
+.scene{position:absolute;inset:0;z-index:-1}
+.scene svg{position:absolute;inset:0;width:100%;height:100%}
+.moon{position:absolute;width:190px;height:190px;border-radius:50%;background:radial-gradient(circle at 38% 38%,#fff8e6,#f5dcb0 60%,#e7bf8a);
+  box-shadow:0 0 90px 30px rgba(255,220,170,.25),0 0 220px 90px rgba(255,180,140,.12)}
+.stars{position:absolute;inset:0;background-image:radial-gradient(2px 2px at 12% 12%,#fff 60%,transparent),radial-gradient(1.6px 1.6px at 30% 6%,#fff 60%,transparent),
+  radial-gradient(2px 2px at 48% 18%,#fff 60%,transparent),radial-gradient(1.6px 1.6px at 66% 9%,#fff 60%,transparent),radial-gradient(2px 2px at 90% 22%,#fff 60%,transparent),
+  radial-gradient(1.6px 1.6px at 8% 30%,#fff 60%,transparent),radial-gradient(1.6px 1.6px at 40% 28%,#fff 60%,transparent),radial-gradient(2px 2px at 78% 32%,#fff 60%,transparent);opacity:.7}
+.scrim-b{position:absolute;inset:0;background:linear-gradient(0deg,rgba(12,9,24,.92) 0%,rgba(12,9,24,.2) 45%,transparent 70%)}
+.scrim-t{position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,9,24,.75) 0%,transparent 45%)}
+.petal{position:absolute;width:18px;height:11px;border-radius:50%;background:#ffc9d6;opacity:.75}
+
+/* ---------- Post 1 ---------- */
+.p1-cover .ko-ghost{position:absolute;right:30px;top:820px;font:700 330px/1 var(--f-ko);color:transparent;-webkit-text-stroke:2.5px rgba(255,210,170,.28);letter-spacing:-.02em}
+.p1-cover .copy{position:absolute;left:72px;right:72px;top:360px}
+.p1-cover .h1{font-size:122px;text-shadow:0 12px 50px rgba(0,0,0,.4)}
+.p1-cover .h1 i{font-weight:400;color:#ffd9b8}
+.p1-cover .lead{margin-top:34px;max-width:780px;color:var(--on-dark)}
+.reason .ring{position:absolute;left:50%;top:190px;width:640px;height:640px;margin-left:-320px;border-radius:50%;overflow:hidden;
+  box-shadow:0 0 0 16px rgba(255,255,255,.05),0 0 0 32px rgba(255,255,255,.025),0 50px 100px -30px rgba(0,0,0,.7)}
+.reason .ring img{width:100%;height:100%;object-fit:cover}
+.reason .num{position:absolute;left:50%;top:752px;transform:translateX(-50%);padding:10px 34px;border-radius:999px;background:var(--red);color:#fff;font:700 40px var(--f-ko);box-shadow:0 14px 30px -10px rgba(0,0,0,.5)}
+.reason .copy{position:absolute;left:84px;right:84px;top:880px;text-align:center}
+.reason .h2{font-size:66px}
+.reason .lead{margin-top:22px;font-size:33px}
+.reason .ko-side{position:absolute;right:46px;top:150px;writing-mode:vertical-rl;font:700 40px var(--f-ko);letter-spacing:.3em;color:rgba(255,255,255,.14)}
+.p1-close .copy{position:absolute;left:72px;right:72px;top:250px}
+.p1-close .h1{font-size:112px}
+.facts{margin-top:50px;display:grid;gap:22px}
+.fact{display:flex;gap:26px;align-items:center;padding:26px 30px;border-radius:26px;background:#fffaf2;border:1.5px solid var(--paper-line);font:600 32px/1.35 var(--f-body)}
+.fact .k{flex:none;display:grid;place-items:center;width:84px;height:84px;border-radius:50%;background:var(--ink);color:var(--on-dark);font:700 30px var(--f-ko)}
+.fact:nth-child(2) .k{background:var(--gold);color:var(--ink)}
+.fact:nth-child(3) .k{background:var(--red)}
+.cta{display:inline-flex;align-items:center;gap:16px;padding:26px 44px;border-radius:999px;background:var(--red);color:#fff;font:800 34px var(--f-body);box-shadow:0 20px 40px -14px rgba(210,64,47,.7)}
+.cta.ghost{background:transparent;color:inherit;box-shadow:inset 0 0 0 2.5px currentColor}
+
+/* ---------- Post 2 ---------- */
+.wongoji::before{content:"";position:absolute;inset:0;z-index:-1;opacity:.55;
+  background-image:linear-gradient(var(--paper-line) 1.5px,transparent 1.5px),linear-gradient(90deg,var(--paper-line) 1.5px,transparent 1.5px);background-size:90px 90px;background-position:0 20px}
+.p2-cover{background:radial-gradient(90% 60% at 80% 10%,#3a2146 0%,var(--ink) 60%)}
+.p2-cover .stack{position:absolute;right:-40px;top:170px;display:grid;gap:0;text-align:right;font:700 150px/1.12 var(--f-ko);color:transparent;-webkit-text-stroke:2px rgba(255,255,255,.16)}
+.p2-cover .stack span:nth-child(1){-webkit-text-stroke-color:rgba(240,177,82,.55)}
+.p2-cover .copy{position:absolute;left:72px;right:72px;bottom:190px}
+.p2-cover .h1{font-size:128px}
+.p2-cover .h1 .n{display:inline-block;color:var(--gold);font-style:italic;font-weight:600}
+.p2-cover .save{margin-top:40px;display:inline-flex;align-items:center;gap:14px;padding:18px 30px;border-radius:999px;background:rgba(255,255,255,.1);box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.25);font:700 30px var(--f-body)}
+.wordslide .idx{position:absolute;left:72px;top:190px;font:800 30px var(--f-body);letter-spacing:.2em;color:var(--red-deep)}
+.wordslide .card{position:absolute;left:72px;right:72px;top:260px;height:640px;border-radius:44px;background:#fffaf2;box-shadow:0 40px 80px -40px rgba(18,13,29,.45),inset 0 0 0 1.5px var(--paper-line);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden}
+.wordslide .card::after{content:"";position:absolute;right:34px;top:34px;width:70px;height:70px;border-radius:14px;background:var(--red);opacity:.9;transform:rotate(-6deg)}
+.wordslide .card .seal-ko{position:absolute;right:34px;top:34px;width:70px;height:70px;display:grid;place-items:center;z-index:2;color:#fff;font:700 34px var(--f-ko);transform:rotate(-6deg)}
+.blocks{display:flex;gap:6px;justify-content:center}
+.blk{display:flex;flex-direction:column;align-items:center;gap:14px}
+.blk b{font:700 var(--ks,170px)/1.05 var(--f-ko);color:var(--ink)}
+.blk i{font:italic 600 34px var(--f-display);color:var(--text-soft)}
+.blk.hl i{color:var(--red)}
+.rom{margin-top:34px;font:italic 400 54px var(--f-display);color:var(--ink);letter-spacing:.01em}
+.meaning{position:absolute;left:72px;right:72px;top:950px}
+.meaning .m{font:800 72px/1.05 var(--f-display)}
+.meaning .m small{font:italic 400 40px var(--f-display);color:var(--text-soft)}
+.meaning .tip{position:relative;margin-top:22px;padding-left:92px;font:500 32px/1.45 var(--f-body);color:var(--text-soft)}
+.meaning .tip::before{content:"TIP";position:absolute;left:0;top:4px;height:40px;padding:0 12px;border-radius:8px;background:var(--jade);color:#fff;font:800 20px/40px var(--f-body);letter-spacing:.12em}
+.meaning .tip b{color:var(--text)}
+.p2-end .copy{position:absolute;left:72px;right:72px;top:230px}
+.p2-end .recap{margin-top:46px;display:flex;flex-wrap:wrap;gap:14px}
+.p2-end .recap span{padding:14px 24px;border-radius:999px;background:rgba(255,255,255,.08);box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.18);font:700 34px var(--f-ko)}
+.p2-end .course{position:absolute;left:72px;right:72px;bottom:190px;padding:44px;border-radius:36px;background:var(--paper);color:var(--text)}
+.p2-end .course h3{font:800 46px/1.1 var(--f-display);margin:14px 0 18px}
+.p2-end .course p{font:500 30px/1.45 var(--f-body);color:var(--text-soft)}
+
+/* ---------- Post 3 ---------- */
+.p3-cover .arch{position:absolute;left:72px;top:170px;width:600px;height:810px;border-radius:320px 320px 36px 36px;overflow:hidden;box-shadow:0 50px 90px -40px rgba(18,13,29,.55);background:var(--paper-2)}
+.p3-cover .arch img{width:100%;height:100%;object-fit:cover;object-position:50% 8%}
+.p3-cover .vert{position:absolute;right:92px;top:190px;writing-mode:vertical-rl;font:700 92px/1 var(--f-ko);color:var(--red-deep);letter-spacing:.12em}
+.p3-cover .copy{position:absolute;left:72px;right:72px;bottom:120px}
+.p3-cover .hi{position:absolute;left:540px;top:800px;padding:22px 34px;border-radius:30px 30px 30px 6px;background:var(--red);color:#fff;font:700 50px var(--f-ko);transform:rotate(-3deg);box-shadow:0 20px 40px -16px rgba(0,0,0,.4)}
+.p3-cover .h1{font-size:118px}
+.p3-cover .h1 i{font-weight:400;color:var(--red-deep);font-size:.5em;display:block;margin-top:10px}
+.bigstat{font:800 210px/0.95 var(--f-display);letter-spacing:-.03em;background:linear-gradient(180deg,var(--gold),var(--red));-webkit-background-clip:text;background-clip:text;color:transparent}
+.fact-slide .copy{position:absolute;left:72px;right:72px;top:240px}
+.fact-slide .h2{margin-top:26px}
+.fact-slide .lead{margin-top:30px}
+.chips{display:flex;flex-wrap:wrap;gap:14px;margin-top:40px}
+.chips span{padding:14px 26px;border-radius:999px;font:700 28px var(--f-body);background:#fffaf2;border:1.5px solid var(--paper-line)}
+.dark .chips span{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18)}
+.globe{position:absolute;left:50%;bottom:150px;width:760px;height:430px;margin-left:-380px}
+.bubbles{position:absolute;left:72px;right:72px;bottom:190px;display:grid;gap:22px}
+.bubble{max-width:74%;padding:24px 32px;border-radius:34px;font:600 34px/1.35 var(--f-body);box-shadow:0 20px 40px -20px rgba(0,0,0,.5)}
+.bubble small{display:block;font:500 24px var(--f-body);opacity:.7;margin-top:4px}
+.bubble.l{background:var(--paper);color:var(--text);border-bottom-left-radius:8px}
+.bubble.r{justify-self:end;background:var(--red);color:#fff;border-bottom-right-radius:8px}
+.bubble.l2{background:var(--gold);color:var(--ink);border-bottom-left-radius:8px}
+.quote{font:italic 400 54px/1.3 var(--f-display)}
+.quote .mark{display:block;font:800 180px/0.6 var(--f-display);color:var(--red);height:90px}
+.p3-end .hanbok{position:absolute;left:0;right:0;bottom:0;height:640px}
+.p3-end .hanbok img{width:100%;height:100%;object-fit:cover;object-position:82% 50%;mix-blend-mode:multiply}
+
+.sign{font:italic 600 70px var(--f-display)}
+</style>
+</head>
+<body>
+
+<!-- Shared SVG symbols -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <radialGradient id="glow"><stop offset="0" stop-color="#ffd48a" stop-opacity=".9"/><stop offset="1" stop-color="#ff8a3d" stop-opacity="0"/></radialGradient>
+    <linearGradient id="lbody" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#ffcf7a"/><stop offset="1" stop-color="#e2553a"/></linearGradient>
+    <g id="roof">
+      <path d="M-30 96 C10 92 40 80 62 52 L338 52 C360 80 390 92 430 96 C392 104 360 106 330 104 L70 104 C40 106 8 104 -30 96Z"/>
+      <path d="M70 52 C120 30 280 30 330 52 Z"/><rect x="60" y="44" width="280" height="10" rx="4"/><rect x="46" y="104" width="308" height="10"/>
+    </g>
+    <g id="lantern">
+      <circle r="60" fill="url(#glow)"/><line x1="0" y1="-44" x2="0" y2="-22" stroke="#120c1c" stroke-width="3"/>
+      <rect x="-15" y="-22" width="30" height="42" rx="13" fill="url(#lbody)"/>
+      <rect x="-9" y="-26" width="18" height="6" fill="#120c1c"/><rect x="-9" y="18" width="18" height="6" fill="#120c1c"/>
+    </g>
+    <g id="hanok">
+      <use href="#roof"/><rect x="56" y="114" width="288" height="300"/>
+      <g fill="#ffb86b" opacity=".72"><rect x="86" y="146" width="62" height="86"/><rect x="252" y="146" width="62" height="86"/></g>
+      <g stroke="currentColor" stroke-width="4"><path d="M117 146 V232 M86 189 H148 M283 146 V232 M252 189 H314"/></g>
+    </g>
+    <g id="landscape">
+      <path d="M0 860 C120 800 220 790 320 820 S520 740 620 760 760 700 860 730 1000 770 1080 750 V1350 H0Z" fill="#4a3062"/>
+      <g fill="#4a3062" transform="translate(330 0)"><rect x="637" y="590" width="7" height="140"/><rect x="628" y="636" width="25" height="16" rx="5"/><rect x="632" y="620" width="17" height="12" rx="4"/><rect x="639" y="556" width="3" height="38"/></g>
+      <g fill="#ffcf8a"><circle cx="420" cy="800" r="2"/><circle cx="470" cy="790" r="1.6"/><circle cx="560" cy="775" r="2"/><circle cx="720" cy="745" r="1.6"/><circle cx="800" cy="750" r="2"/><circle cx="930" cy="770" r="1.6"/><circle cx="250" cy="815" r="1.6"/></g>
+      <path d="M0 960 C140 900 260 880 380 910 S600 860 720 890 900 850 1080 880 V1350 H0Z" fill="#2e1f45"/>
+      <g fill="#2e1f45"><path d="M300 910 l18 -52 l18 52z M314 870 l12 -32 l12 32z"/><path d="M880 870 l18 -50 l18 50z"/></g>
+    </g>
+  </defs>
+</svg>
+
+<!-- =================== POST 1 · BRAND INTRO =================== -->
+<p class="post-label">Post 1 · Brand introduction (7 slides)</p>
+<div class="row">
+
+  <section class="slide dusk p1-cover" id="p1-01">
+    <div class="scene">
+      <div class="stars"></div>
+      <svg viewBox="0 0 1080 1350" preserveAspectRatio="xMidYMax slice">
+        <use href="#landscape"/>
+        <g fill="#120c1c" color="#120c1c" transform="translate(-120 1000) scale(1.05)"><use href="#hanok"/></g>
+        <g fill="#0f0a18" color="#0f0a18" transform="translate(640 960) scale(1.15)"><use href="#hanok"/></g>
+        <path d="M0 1290 H1080 V1350 H0Z" fill="#0d0914"/>
+        <use href="#lantern" transform="translate(40 1128)"/><use href="#lantern" transform="translate(372 1128)"/>
+        <use href="#lantern" transform="translate(700 1086)"/><use href="#lantern" transform="translate(1060 1086)"/>
+      </svg>
+      <span class="petal" style="left:200px;top:640px;transform:rotate(30deg)"></span><span class="petal" style="left:820px;top:520px;transform:rotate(-20deg)"></span>
+      <span class="petal" style="left:560px;top:900px;transform:rotate(60deg)"></span><span class="petal" style="left:940px;top:760px"></span>
+      <div class="scrim-t" style="opacity:.6"></div>
+      <div class="moon" style="right:120px;top:210px"></div>
+    </div>
+    <div class="band"></div>
+    <div class="head"><div class="brand"><span class="seal" lang="ko">마루</span><span class="word">MARU</span></div><span class="count">01 / 07</span></div>
+        <div class="copy">
+      <span class="series"><span class="dot"></span>Beginner Korean course</span>
+      <h1 class="h1" style="margin-top:34px">Your Korean journey <i>starts here.</i></h1>
+      <p class="lead">Korean is more than vocabulary. Here’s what it opens up →</p>
+    </div>
+  </section>
+
+  <section class="slide reason" id="p1-02">
+    <div class="band"></div>
+    <div class="head"><div class="brand"><span class="seal" lang="ko">마루</span><span class="word">MARU</span></div><span class="count">02 / 07</span></div>
+    <span class="ko-side" lang="ko">원어 콘텐츠</span>
+    <div class="ring"><img src="../assets/img/why-1-original-content.jpg" alt=""></div>
+    <span class="num" lang="ko">하나</span>
+    <div class="copy">
+      <p class="eyebrow">01 · Content in the original language</p>
+      <h2 class="h2" style="margin-top:20px">See your favorite shows <em class="gold">for the very first time.</em></h2>
+      <p class="lead">Wordplay, humor and cultural references often get lost in translation. In Korean, you get the original.</p>
+    </div>
+  </section>
+
+  <section class="slide reason" id="p1-03">
+    <div class="band"></div>
+    <div class="head"><div class="brand"><span class="seal" lang="ko">마루</span><span class="word">MARU</span></div><span class="count">03 / 07</span></div>
+    <span class="ko-side" lang="ko">집에서 한국</span>
+    <div class="ring"><img src="../assets/img/why-2-immersion.jpg" alt=""></div>
+    <span class="num" lang="ko">둘</span>
+    <div class="copy">
+      <p class="eyebrow">02 · Cultural immersion from home</p>
+      <h2 class="h2" style="margin-top:20px">“Live” in Korea <em class="gold">from your couch.</em></h2>
+      <p class="lead">Trending vlogs, interviews, street reviews, podcasts: the same content locals watch. No flight ticket needed.</p>
+    </div>
+  </section>
+
+  <section class="slide reason" id="p1-04">
+    <div class="band"></div>
+    <div class="head"><div class="brand"><span class="seal" lang="ko">마루</span><span class="word">MARU</span></div><span class="count">04 / 07</span></div>
+    <span class="ko-side" lang="ko">새 친구</span>
+    <div class="ring"><img src="../assets/img/why-3-friends.jpg" alt=""></div>
+    <span class="num" lang="ko">셋</span>
+    <div class="copy">
+      <p class="eyebrow">03 · New friends</p>
+      <h2 class="h2" style="margin-top:20px">Friends in Seoul, <em class="gold">in their language.</em></h2>
+      <p class="lead">Truly deep, authentic friendships usually happen when you speak someone’s native tongue.</p>
+    </div>
+  </section>
+
+  <section class="slide reason" id="p1-05">
+    <div class="band"></div>
+    <div class="head"><div class="brand"><span class="seal" lang="ko">마루</span><span class="word">MARU</span></div><span class="count">05 / 07</span></div>
+    <span class="ko-side" lang="ko">여행</span>
+    <div class="ring"><img src="../assets/img/why-4-travel.jpg" alt=""></div>
+    <span class="num" lang="ko">넷</span>
+    <div class="copy">
+      <p class="eyebrow">04 · Next-level travel experiences</p>
+      <h2 class="h2" style="margin-top:20px">Don’t just visit. <em class="gold">Belong.</em></h2>
+      <p class="lead">Even a quick joke with a local gives an unmatched sense of belonging. You'll feel part of the place.</p>
+    </div>
+  </section>
+
+  <section class="slide reason" id="p1-06">
+    <div class="band"></div>
+    <div class="head"><div class="brand"><span class="seal" lang="ko">마루</span><span class="word">MARU</span></div><span class="count">06 / 07</span></div>
+    <span class="ko-side" lang="ko">새로운 시각</span>
+    <div class="ring"><img src="../assets/img/why-5-worldview.jpg" alt=""></div>
+    <span class="num" lang="ko">다섯</span>
+    <div class="copy">
+      <p class="eyebrow">05 · A whole new worldview</p>
+      <h2 class="h2" style="margin-top:20px">A new window <em class="gold">in the wall of your room.</em></h2>
+      <p class="lead">Language is a system of thinking. Korean opens up new concepts, idioms and emotional nuances.</p>
+    </div>
+  </section>
+
+  <section class="slide paper p1-close" id="p1-07">
+    <div class="band"></div>
+    <div class="head"><div class="brand"><span class="seal" lang="ko">마루</span><span class="word">MARU</span></div><span class="count">07 / 07</span></div>
+    <div class="copy">
+      <p class="eyebrow">This is Maru <span lang="ko">마루</span></p>
+      <h2 class="h1" style="margin-top:24px">Where your Korean <em class="red">begins.</em></h2>
+      <div class="facts">
+        <div class="fact"><span class="k" lang="ko">한글</span><span>A Beginner Korean course: master Hangul, sound natural, grasp grammar basics</span></div>
+        <div class="fact"><span class="k">30</span><span>In only 30 days, with lessons you can watch from your phone or computer</span></div>
+        <div class="fact"><span class="k" lang="ko">서울</span><span>Taught by Henry Ahn, a certified Korean language teacher based in Seoul</span></div>
+      </div>
+      <div style="margin-top:56px;display:flex;gap:18px;align-items:center">
+        <span class="cta">Follow the journey</span><span style="font:600 30px var(--f-body);color:var(--text-soft)">Course link in bio</span>
+      </div>
+    </div>
+    <div class="foot" style="color:var(--text-soft)"><span lang="ko">시작해 볼까요?</span><span>maru-school.com</span></div>
+  </section>
+</div>
+
+<!-- =================== POST 2 · FIRST 5 WORDS =================== -->
+<p class="post-label">Post 2 · Your first 5 Korean words (7 slides)</p>
+<div class="row">
+
+  <section class="slide p2-cover" id="p2-01">
+    <div class="band"></div>
+    <div class="head"><div class="brand"><span class="seal" lang="ko">마루</span><span class="word">MARU</span></div><span class="count">01 / 07</span></div>
+    <div class="stack" lang="ko"><span>안녕하세요</span><span>감사합니다</span><span>네</span><span>아니요</span><span>주세요</span></div>
+    <div class="copy">
+      <span class="series"><span class="dot"></span>Korean for total beginners</span>
+      <h1 class="h1" style="margin-top:34px">Your first <span class="n">5</span><br>Korean words</h1>
+      <span class="save">🔖 Save this for later</span>
+    </div>
+    <div class="foot"><span></span><span class="swipe">Swipe</span></div>
+  </section>
+
+  <section class="slide paper wongoji wordslide" id="p2-02">
+    <div class="band"></div>
+    <div class="head"><div class="brand"><span class="seal" lang="ko">마루</span><span class="word">MARU</span></div><span class="count">02 / 07</span></div>
+    <span class="idx">WORD 01</span>
+    <div class="card" style="--ks:150px">
+      <span class="seal-ko" lang="ko">인사</span>
+      <div class="blocks"><span class="blk"><b lang="ko">안</b><i>an</i></span><span class="blk"><b lang="ko">녕</b><i>nyeong</i></span><span class="blk"><b lang="ko">하</b><i>ha</i></span><span class="blk"><b lang="ko">세</b><i>se</i></span><span class="blk"><b lang="ko">요</b><i>yo</i></span></div>
+      <p class="rom">annyeonghaseyo</p>
+    </div>
+    <div class="meaning">
+      <p class="m">Hello <small>(polite)</small></p>
+      <p class="tip">Your go-to greeting for almost anyone: shop staff, teachers, new people you meet.</p>
+    </div>
+  </section>
+
+  <section class="slide paper wongoji wordslide" id="p2-03">
+    <div class="band"></div>
+    <div class="head"><div class="brand"><span class="seal" lang="ko">마루</span><span class="word">MARU</span></div><span class="count">03 / 07</span></div>
+    <span class="idx">WORD 02</span>
+    <div class="card" style="--ks:150px">
+      <span class="seal-ko" lang="ko">감사</span>
+      <div class="blocks"><span class="blk"><b lang="ko">감</b><i>gam</i></span><span class="blk"><b lang="ko">사</b><i>sa</i></span><span class="blk hl"><b lang="ko">합</b><i>ham</i></span><span class="blk"><b lang="ko">니</b><i>ni</i></span><span class="blk"><b lang="ko">다</b><i>da</i></span></div>
+      <p class="rom">gamsahamnida</p>
+    </div>
+    <div class="meaning">
+      <p class="m">Thank you <small>(formal)</small></p>
+      <p class="tip">It’s spelled <b lang="ko">합</b> but said <b>“ham”</b>: ㅂ turns into ㅁ before ㄴ. Korean has sound rules like this, and they’re learnable.</p>
+    </div>
+  </section>
+
+  <section class="slide paper wongoji wordslide" id="p2-04">
+    <div class="band"></div>
+    <div class="head"><div class="brand"><span class="seal" lang="ko">마루</span><span class="word">MARU</span></div><span class="count">04 / 07</span></div>
+    <span class="idx">WORD 03</span>
+    <div class="card" style="--ks:300px">
+      <span class="seal-ko" lang="ko">예</span>
+      <div class="blocks"><span class="blk"><b lang="ko">네</b></span></div>
+      <p class="rom">ne</p>
+    </div>
+    <div class="meaning">
+      <p class="m">Yes</p>
+      <p class="tip">You’ll also hear <b lang="ko">네</b> as a friendly “uh-huh, I’m listening” in conversation.</p>
+    </div>
+  </section>
+
+  <section class="slide paper wongoji wordslide" id="p2-05">
+    <div class="band"></div>
+    <div class="head"><div class="brand"><span class="seal" lang="ko">마루</span><span class="word">MARU</span></div><span class="count">05 / 07</span></div>
+    <span class="idx">WORD 04</span>
+    <div class="card" style="--ks:200px">
+      <span class="seal-ko" lang="ko">부정</span>
+      <div class="blocks"><span class="blk"><b lang="ko">아</b><i>a</i></span><span class="blk"><b lang="ko">니</b><i>ni</i></span><span class="blk"><b lang="ko">요</b><i>yo</i></span></div>
+      <p class="rom">aniyo</p>
+    </div>
+    <div class="meaning">
+      <p class="m">No <small>(polite)</small></p>
+      <p class="tip">That final <b lang="ko">요</b> (yo) is what makes it polite. Spot it on 안녕하세요 too?</p>
+    </div>
+  </section>
+
+  <section class="slide paper wongoji wordslide" id="p2-06">
+    <div class="band"></div>
+    <div class="head"><div class="brand"><span class="seal" lang="ko">마루</span><span class="word">MARU</span></div><span class="count">06 / 07</span></div>
+    <span class="idx">WORD 05</span>
+    <div class="card" style="--ks:200px">
+      <span class="seal-ko" lang="ko">부탁</span>
+      <div class="blocks"><span class="blk"><b lang="ko">주</b><i>ju</i></span><span class="blk"><b lang="ko">세</b><i>se</i></span><span class="blk"><b lang="ko">요</b><i>yo</i></span></div>
+      <p class="rom">juseyo</p>
+    </div>
+    <div class="meaning">
+      <p class="m">Please give me… <small>/ …, please</small></p>
+      <p class="tip">Put it after what you want: <b lang="ko">물 주세요</b> (mul juseyo) = <b>“Water, please.”</b></p>
+    </div>
+  </section>
+
+  <section class="slide p2-end" id="p2-07" style="background:radial-gradient(90% 60% at 20% 0%,#3a2146 0%,var(--ink) 60%)">
+    <div class="band"></div>
+    <div class="head"><div class="brand"><span class="seal" lang="ko">마루</span><span class="word">MARU</span></div><span class="count">07 / 07</span></div>
+    <div class="copy">
+      <p class="eyebrow">You just learned</p>
+      <div class="recap" lang="ko"><span>안녕하세요</span><span>감사합니다</span><span>네</span><span>아니요</span><span>주세요</span></div>
+      <h2 class="h2" style="margin-top:60px">Now imagine <em class="gold">reading them yourself.</em></h2>
+    </div>
+    <div class="course">
+      <p class="eyebrow">Maru · Beginner Korean course</p>
+      <h3>In only 30 days: master Hangul, sound natural, and grasp grammar basics.</h3>
+      <p>Comment <b style="color:var(--text)" lang="ko">네</b> if you want more beginner Korean. Course link in bio.</p>
+    </div>
+    <div class="foot"><span lang="ko">감사합니다 💜</span><span>maru-school.com</span></div>
+  </section>
+</div>
+
+<!-- =================== POST 3 · MEET HENRY =================== -->
+<p class="post-label">Post 3 · Meet Henry (6 slides)</p>
+<div class="row">
+
+  <section class="slide paper p3-cover" id="p3-01">
+    <div class="band"></div>
+    <div class="head"><div class="brand"><span class="seal" lang="ko">마루</span><span class="word">MARU</span></div><span class="count">01 / 06</span></div>
+    <div class="arch"><img src="../assets/img/henry-portrait.jpg" alt=""></div>
+    <span class="vert" lang="ko">선생님</span>
+    <span class="hi" lang="ko">안녕하세요!</span>
+    <div class="copy">
+      <h1 class="h1">Meet Henry <i>Your Korean teacher at Maru</i></h1>
+    </div>
+  </section>
+
+  <section class="slide fact-slide dark" id="p3-02" style="background:radial-gradient(80% 60% at 80% 100%,#4a2a55 0%,var(--ink) 65%)">
+    <div class="scene">
+      <svg viewBox="0 0 1080 1350" preserveAspectRatio="xMidYMax slice" style="opacity:.9">
+        <use href="#landscape" transform="translate(0 120)"/>
+        <g fill="#120c1c" color="#120c1c" transform="translate(300 1030) scale(1.2)"><use href="#hanok"/></g>
+        <path d="M0 1300 H1080 V1350 H0Z" fill="#0d0914"/>
+        <use href="#lantern" transform="translate(360 1150) scale(1.1)"/><use href="#lantern" transform="translate(760 1150) scale(1.1)"/>
+      </svg>
+      <div class="moon" style="right:110px;top:560px;width:130px;height:130px"></div>
+    </div>
+    <div class="band"></div>
+    <div class="head"><div class="brand"><span class="seal" lang="ko">마루</span><span class="word">MARU</span></div><span class="count">02 / 06</span></div>
+    <div class="copy">
+      <p class="eyebrow">Who he is</p>
+      <h2 class="h2">A certified Korean language teacher, <em class="gold">based in Seoul.</em></h2>
+      <div class="chips"><span>Certified teacher</span><span lang="ko">서울 · Seoul</span></div>
+    </div>
+  </section>
+
+  <section class="slide paper fact-slide" id="p3-03">
+    <div class="band"></div>
+    <div class="head"><div class="brand"><span class="seal" lang="ko">마루</span><span class="word">MARU</span></div><span class="count">03 / 06</span></div>
+    <div class="copy">
+      <p class="eyebrow">His experience</p>
+      <p class="bigstat" style="margin-top:30px">3+ years</p>
+      <h2 class="h2" style="font-size:64px">teaching Korean to students from a wide range of <em class="red">countries and backgrounds.</em></h2>
+    </div>
+    <svg class="globe" viewBox="0 0 760 430" aria-hidden="true">
+      <g fill="none" stroke="#d9cbb3" stroke-width="3">
+        <path d="M20 400 C140 120 620 120 740 400"/><path d="M110 400 C200 200 560 200 650 400" stroke-dasharray="10 12"/><path d="M200 400 C260 280 500 280 560 400"/>
+      </g>
+      <g font-family="Gowun Batang, serif" font-weight="700" font-size="46" text-anchor="middle">
+        <g transform="translate(380 150)"><circle r="46" fill="#d2402f"/><text y="16" fill="#fff">서울</text></g>
+      </g>
+      <g fill="#120d1d"><circle cx="64" cy="330" r="12"/><circle cx="170" cy="215" r="12"/><circle cx="600" cy="220" r="12"/><circle cx="700" cy="320" r="12"/><circle cx="250" cy="330" r="9"/><circle cx="520" cy="320" r="9"/></g>
+      <g stroke="#d2402f" stroke-width="2.5" stroke-dasharray="6 8" fill="none"><path d="M64 330 Q200 170 340 150"/><path d="M700 320 Q560 170 420 150"/><path d="M170 215 Q260 140 340 145"/><path d="M600 220 Q500 130 420 145"/></g>
+    </svg>
+  </section>
+
+  <section class="slide fact-slide" id="p3-04" style="background:linear-gradient(180deg,var(--ink) 0%,#2a1740 60%,#5a2a4a 100%)">
+    <div class="band"></div>
+    <div class="head"><div class="brand"><span class="seal" lang="ko">마루</span><span class="word">MARU</span></div><span class="count">04 / 06</span></div>
+    <div class="copy">
+      <p class="eyebrow">Off-screen, in Seoul</p>
+      <h2 class="h2" style="margin-top:22px">He runs <em class="gold">KONNECT</em></h2>
+      <p class="lead">An offline language exchange community in Seoul, where Korean and international friends meet, connect, and practice languages through real conversations.</p>
+    </div>
+    <div class="bubbles">
+      <div class="bubble l"><span lang="ko">안녕하세요! 처음 뵙겠습니다.</span><small>Hello! Nice to meet you. (formal)</small></div>
+      <div class="bubble r">Hi! I’m practicing my Korean 🙂<small>Korean &amp; international friends, practicing together</small></div>
+      <div class="bubble l2"><span lang="ko">만나서 반가워요!</span><small>Glad to meet you!</small></div>
+    </div>
+  </section>
+
+  <section class="slide paper fact-slide" id="p3-05">
+    <div class="band"></div>
+    <div class="head"><div class="brand"><span class="seal" lang="ko">마루</span><span class="word">MARU</span></div><span class="count">05 / 06</span></div>
+    <div class="copy">
+      <p class="eyebrow">Online</p>
+      <p class="bigstat" style="margin-top:30px;font-size:170px">nearly<br>100,000</p>
+      <p class="quote" style="margin-top:40px;font-size:46px">“I share fun and practical lessons about the Korean language and culture with nearly 100,000 learners across Instagram, YouTube, and TikTok.”</p>
+      <div class="chips"><span>Instagram</span><span>YouTube</span><span>TikTok</span></div>
+    </div>
+  </section>
+
+  <section class="slide paper p3-end" id="p3-06">
+    <div class="band"></div>
+    <div class="head"><div class="brand"><span class="seal" lang="ko">마루</span><span class="word">MARU</span></div><span class="count">06 / 06</span></div>
+    <div class="hanbok"><img src="../assets/img/henry-hanbok.webp" alt=""></div>
+    <div style="position:absolute;left:72px;right:72px;top:190px;z-index:2">
+      <p class="quote" style="font-size:50px"><span class="mark">“</span>My goal is to make Korean feel simple, approachable, and enjoyable, so you can start using it with confidence <em class="red" style="font-style:italic">from day one.</em>”</p>
+      <p class="sign" style="margin-top:34px">See you in class! 💜</p>
+      <p style="margin-top:16px;font:600 30px var(--f-body);color:var(--text-soft)">Henry · Maru's Beginner Korean course · link in bio</p>
+    </div>
+  </section>
+</div>
+
+</body>
+</html>
